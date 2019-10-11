@@ -2,10 +2,12 @@
 
 cd proj/cmake
 
-rm -r build
+if [ -d "build" ]; then
+  cd build
+else
+  mkdir build
+  cd build
+  cmake ..
+fi
 
-mkdir build
-cd build
-
-cmake ..
 make -j10

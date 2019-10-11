@@ -19,3 +19,9 @@ ci_make_app(
 	SOURCES     ${APP_PATH}/src/complex/MaurerRose.cpp
 	CINDER_PATH ${CINDER_PATH}
 )
+
+ci_make_app(
+  APP_NAME    "MaurerRoseSin"
+	SOURCES     ${APP_PATH}/src/sin/MaurerRose.cpp
+	CINDER_PATH ${CINDER_PATH}
+)
