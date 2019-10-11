@@ -32,20 +32,27 @@ void MaurerRose::update()
 void MaurerRose::draw()
 {
 	ci::gl::clear(ci::Color::gray(0.0f));
+  //ci::gl::clear(ci::Color(1, 0, 0));
 
   ci::gl::pushModelMatrix();
   ci::gl::translate(getWindowWidth() / 2, getWindowHeight() / 2);
 
-  ci::gl::begin(GL_LINE_STRIP);
-  for (int i = 0; i <= 360; i++)
+  for (int i = 0; i < 360; i += 2)
   {
-    double k = i * d;
-    double r = sin(to_radians(n * k)) * getWindowWidth() / 3;
-    double x = r * cos(to_radians(k));
-    double y = r * sin(to_radians(k));
-    ci::gl::vertex(glm::vec2(x, y));
+    ci::gl::color(ci::Color(i / 360.0, 0.5, 0.5));
+
+    double k1 = i * d;
+    double r1 = sin(to_radians(n * k1)) * getWindowWidth() / 4;
+    double x1 = r1 * cos(to_radians(k1));
+    double y1 = r1 * sin(to_radians(k1));
+
+    double k2 = (i + 1) * d;
+    double r2 = sin(to_radians(n * k2)) * getWindowWidth() / 4;
+    double x2 = r2 * cos(to_radians(k2));
+    double y2 = r2 * sin(to_radians(k2));
+
+    ci::gl::drawLine(glm::vec2(x1, y1), glm::vec2(x2, y2));
   }
-  ci::gl::end();
 
   ci::gl::popModelMatrix();
 }
