@@ -19,13 +19,13 @@ inline double to_radians(double degrees)
 }
 
 void MaurerRose::setup()
-{ 
+{
 
 }
 
 void MaurerRose::update()
-{ 
-
+{
+  getWindow()->setTitle("FPS: " + std::to_string(static_cast<int>(getFrameRate())));
 }
 
 void MaurerRose::draw()
